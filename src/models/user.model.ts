@@ -64,4 +64,16 @@ export class User implements IUser {
     isMetaAdmin: Joi.boolean()
   });
 
+  /**
+   * Mutates the passed-in user to remove sensitive information
+   */
+  static cleanUser(user: User) {
+    delete user.password;
+    // if (user.facebook) {
+    //   delete user.facebook.token;
+    // }
+    // if (user.google) {
+    //   delete user.google.token;
+    // }
+  }
 }
